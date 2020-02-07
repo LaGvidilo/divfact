@@ -19,9 +19,23 @@ if __name__ == '__main__':
 	with Pool(20) as p:
 		p.map(generate,range(1,1024))
 
-	f = open("uni-divfact-all.csv","w")
+
+
+
+
+
+"""
+#THAT NEXT AFTER THIS COMMENT IS FOR PYTHON 2.7 !!!
+def ptn1():
+	BUFFER = ""
 	for i in range(1,1024):
-		f2 = open("uni-divfact-"+str(divfact)+".csv","r")
-		f.write(f2.read())
-		f2.close()
-		f.close()
+		with open("uni-divfact-"+str(i)+".csv", 'r') as content_file:
+			BUFFER = BUFFER + "\n".join(content_file.read().strip().split("\n")[1:])+"\n"
+		print (i, " - STEP OK.")
+	return BUFFER
+
+f = open("uni-divfact-all.csv","w")
+f.write("x0,x1,y\n")
+f.write(ptn1())
+f.close()
+"""
